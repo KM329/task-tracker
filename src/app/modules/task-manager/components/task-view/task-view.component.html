@@ -1,0 +1,30 @@
+<mat-card cdkDrag>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-6">
+                <h2> {{ listContent.title }} </h2>
+            </div>
+            <div class="col-6">
+                <p class="float-right due-date">Due by: {{ listContent.dueDate }} </p>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <p><b>Description: </b> {{ listContent.description}} </p>
+        </div>
+
+        <div class="col-12">
+            <div class="alert"
+                [ngClass]="{'alert-primary' : status === 'To Do', 'alert-warning' :  status === 'In Progress', 'alert-success' : status === 'Done'}">
+                <p> {{ status }} </p>
+            </div>
+        </div>
+
+        <button class="icon-button" (click)="onClick('edit', listContent.id)">
+            <img class="icon" src="/assets/edit.png" />
+        </button>
+        <button class="icon-button" (click)="onClick('delete', listContent.id)">
+            <img class="delete-icon icon" src="/assets/delete.png" />
+        </button>
+    </mat-card-content>
+</mat-card>

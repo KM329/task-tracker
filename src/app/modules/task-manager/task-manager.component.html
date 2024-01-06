@@ -1,0 +1,8 @@
+<header>
+  <app-task-header (onAddClick)="onAdd()"></app-task-header>
+</header>
+<div class="container">
+  <div class="mt-20" *ngFor="let list of (lists$ | async)">
+    <app-task-view [listContent]="list" (onActionClick)="onTaskActionClick($event)"></app-task-view>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <form [formGroup]="taskAddForm">
+        <div class="row">
+            <div class="col-12">
+                <label for="title" class="form-label"> Title </label>
+                <input type="text" formControlName="title" id="title" class="form-control" />
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <label for="description" class="form-label"> Description </label>
+                <input type="text" formControlName="description" id="description" class="form-control" />
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-12">
+                <label for="status" class="form-label"> Status </label>
+                <select formControlName="status" id="status" class="form-control">
+                    <option *ngFor="let status of statusOptions" [value]="status.value">
+                        {{ status.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        
+        <label for="dueDate" class="form-label"> Due Date </label>
+        <input type="date"formControlName="dueDate" id="dueDate" class="form-control" />
+
+
+    <div class="row mt-5">
+        <div class="col-sm-6 col-12">
+            <button type="button" class="btn btn-secondary" (click)="onClose()"> Close </button>
+        </div>
+        <div class="col-sm-6 col-12">
+            <button type="button" class="btn btn-primary" (click)="onSubmit()"> Submit </button>
+        </div>
+    </div>
+             
+    </form>
+</div>
