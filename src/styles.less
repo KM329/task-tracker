@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "colors.less";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-@red: #FF0000;
 
 .mt-20 {
     margin-top: 20px;
@@ -14,4 +14,15 @@ label {
 
 .float-right {
     float: right;
+}
+
+.error {
+    color: @red;
+}
+
+.footer {
+    background-color:@grey;
+    position: static;
+    height: 4rem;
+    text-align: center;
 }

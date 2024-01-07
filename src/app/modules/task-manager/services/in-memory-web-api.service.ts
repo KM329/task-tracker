@@ -27,9 +27,9 @@ export class InMemoryWebApiService implements InMemoryWebApiService {
       },
       {
         id: 3,
-        title: 'Buy Groceries 123',
-        description: 'Buy gjgj Vegetables for the week',
-        dueDate: '2024-01-17',
+        title: 'Read Book',
+        description: 'Buy Book on Angular Tutorials and Best Practices',
+        dueDate: '2024-01-18',
         status: 'done'
       }
     ]

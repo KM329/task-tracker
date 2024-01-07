@@ -18,8 +18,8 @@ export class TaskViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.status = STATUS.find((status)=> {
-     return this.listContent.status === status.value
-    })?.name
+    if (this.listContent) {
+      this.status = STATUS.find((status) => this.listContent.status === status.value)?.name;
+    }
   }
 }

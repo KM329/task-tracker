@@ -6,7 +6,6 @@ const routes: Routes = [
   { path: '', component: TaskManagerComponent },
 ];
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)
 ],

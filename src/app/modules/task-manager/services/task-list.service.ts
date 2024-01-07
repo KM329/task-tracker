@@ -20,7 +20,7 @@ export class TaskListService {
   ) {}
 
   loadLists(): Subscription {
-    return this.http.get<List[]>(this.url).subscribe((lists: List[]) => {
+    return this.http.get<List[]>(this.url).subscribe((lists: List[])=> {
         this.lists$.next(lists);
     });
   }
@@ -30,14 +30,15 @@ export class TaskListService {
   }
 
   addList(list: List): Subscription {
-    return this.http.post<List[]>(this.url, list).subscribe((lists: List[]) => {
+    return this.http.post<List[]>(this.url, list)
+    .subscribe((lists: List[]) => {
         this.lists$.next(lists);
     });
   }
 
   putList(list: List, id: number) {
     list = { ...list, id: id}
-    return this.http.put<List[]>(this.url, list).subscribe((lists: List[]) => {
+    return this.http.put<List[]>(this.url, list).subscribe(() => {
       this.loadLists();
   });
   }

@@ -1,42 +1,68 @@
 <div class="container">
     <form [formGroup]="taskAddForm">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12">
                 <label for="title" class="form-label"> Title </label>
-                <input type="text" formControlName="title" id="title" class="form-control" />
+                <input 
+                    type="text" 
+                    formControlName="title" 
+                    id="title" 
+                    class="form-control" 
+                    [ngClass]="{ 'is-invalid': taskAddForm.get('title')?.touched && taskAddForm.get('title')?.invalid }" />
+                <p class="error" *ngIf="taskAddForm.get('title')?.touched && taskAddForm.get('title')?.invalid"> Please enter a title. </p>
             </div>
         </div>
-        
-        <div class="row">
+
+        <div class="row mt-4">
             <div class="col-12">
                 <label for="description" class="form-label"> Description </label>
-                <input type="text" formControlName="description" id="description" class="form-control" />
+                <input 
+                    type="text" 
+                    formControlName="description" 
+                    id="description" 
+                    class="form-control" 
+                    [ngClass]="{ 'is-invalid': taskAddForm.get('description')?.touched && taskAddForm.get('description')?.invalid }"/>
+                <p class="error" *ngIf="taskAddForm.get('description')?.touched && taskAddForm.get('description')?.hasError('required')"> Please enter a description. </p>
+                <p class="error" *ngIf="taskAddForm.get('description')?.touched && taskAddForm.get('description')?.hasError('minlength')"> Please enter atleast 8 characters. </p>
             </div>
         </div>
-       
-        <div class="row">
+
+        <div class="row mt-4">
             <div class="col-12">
                 <label for="status" class="form-label"> Status </label>
-                <select formControlName="status" id="status" class="form-control">
+                <select 
+                    formControlName="status" 
+                    id="status" 
+                    class="form-control" 
+                    [ngClass]="{ 'is-invalid': taskAddForm.get('status')?.touched && taskAddForm.get('status')?.invalid }">
                     <option *ngFor="let status of statusOptions" [value]="status.value">
                         {{ status.name }}
                     </option>
                 </select>
+                <p class="error" *ngIf="taskAddForm.get('status')?.touched && taskAddForm.get('status')?.invalid"> Please select a status. </p>
             </div>
         </div>
-        
-        <label for="dueDate" class="form-label"> Due Date </label>
-        <input type="date"formControlName="dueDate" id="dueDate" class="form-control" />
 
+        <div class="row mt-4">
+            <div class="col-12">
+                <label for="dueDate" class="form-label"> Due Date </label>
+                <input 
+                    type="date" 
+                    formControlName="dueDate" 
+                    id="dueDate" 
+                    class="form-control" 
+                    [ngClass]="{ 'is-invalid': taskAddForm.get('dueDate')?.touched && taskAddForm.get('dueDate')?.invalid }"/>
+                <p class="error" *ngIf="taskAddForm.get('dueDate')?.touched && taskAddForm.get('dueDate')?.invalid"> Please enter a valid date within a 90 day range. </p>
+            </div>
+        </div>
 
-    <div class="row mt-5">
-        <div class="col-sm-6 col-12">
-            <button type="button" class="btn btn-secondary" (click)="onClose()"> Close </button>
+        <div class="row mt-5">
+            <div class="col-sm-6 col-12">
+                <button type="button" class="btn btn-secondary" (click)="onClose()"> Close </button>
+            </div>
+            <div class="col-sm-6 col-12">
+                <button type="button" class="btn btn-primary float-right" (click)="onSubmit()"> Submit </button>
+            </div>
         </div>
-        <div class="col-sm-6 col-12">
-            <button type="button" class="btn btn-primary" (click)="onSubmit()"> Submit </button>
-        </div>
-    </div>
-             
     </form>
 </div>

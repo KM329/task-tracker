@@ -8,8 +8,6 @@ xdescribe('TaskManagerComponent', () => {
   let mockRouter: Router;
 
   beforeEach(() => {
-   
-
     component = new TaskManagerComponent(mockTaskListService, mockRouter);
   });
 

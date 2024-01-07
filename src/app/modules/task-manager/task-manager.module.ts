@@ -10,7 +10,7 @@ import { TaskAddComponent } from './components/task-add/task-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { TaskFooterComponent } from './components/task-footer/task-footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TaskHeaderComponent,
     TaskViewComponent,
     TaskAddComponent,
+    TaskFooterComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatCardModule,
     ReactiveFormsModule,
     MatIconModule,
-    DragDropModule
+    DragDropModule,
   ]
 })
 export class TaskManagerModule { }
