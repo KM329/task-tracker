@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { InMemoryWebApiService } from './in-memory-web-api.service';
 import { List } from '../models';
@@ -31,16 +31,14 @@ export class TaskListService {
 
   addList(list: List): Subscription {
     return this.http.post<List[]>(this.url, list)
-    .subscribe((lists: List[]) => {
-        this.lists$.next(lists);
-    });
+    .subscribe();
   }
 
   putList(list: List, id: number) {
     list = { ...list, id: id}
     return this.http.put<List[]>(this.url, list).subscribe(() => {
       this.loadLists();
-  });
+    });
   }
 
   deleteList(id: number): Subscription {
