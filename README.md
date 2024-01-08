@@ -1,5 +1,6 @@
 # XelloTaskTracker
-The Task Tracker can perform the CRUD Operations
+
+The Task Tracker can perform the CRUD Operations and a drag & drop functionality.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
 # Run Application
@@ -14,6 +15,7 @@ $ ng serve
 Open 'http://localhost:4200/lists'
 
 ## Screenshot of what to expect
+
 <img width="875" alt="Screenshot 2024-01-07 at 9 26 42 PM" src="https://github.com/KM329/xello-task-tracker/assets/33872933/138625db-bb24-4854-a297-e3283d534431">
 
 
