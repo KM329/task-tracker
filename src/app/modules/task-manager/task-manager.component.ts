@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { List } from './models';
 import { TaskListService } from './services/task-list.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./task-manager.component.less']
 })
 export class TaskManagerComponent implements OnInit {
-  private destroySubject$: Subject<List> = new Subject();
   readonly lists$: Observable<List[]> = this.getTaskLists();
 
   constructor(private taskListService: TaskListService,

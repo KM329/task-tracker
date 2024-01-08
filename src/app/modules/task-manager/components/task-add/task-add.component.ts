@@ -5,7 +5,7 @@ import { STATUS } from '../../constants/task-manager.constant';
 import { TaskListService } from '../../services/task-list.service';
 import { List } from '../../models';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, Subject, map, switchMap, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-task-add',
@@ -18,6 +18,7 @@ export class TaskAddComponent implements OnInit {
   tasks$!: Observable<List | undefined>;
   isAddFlow: boolean = false;
   id!: number;
+  private destroySubject$: Subject<any> = new Subject();
 
   constructor(private formBuilder: FormBuilder,
     private taskListService: TaskListService,
@@ -38,7 +39,7 @@ export class TaskAddComponent implements OnInit {
       ))
     );
 
-    this.tasks$.subscribe((task) => {
+    this.tasks$.pipe(takeUntil(this.destroySubject$)).subscribe((task) => {
       this.taskAddForm = this.formBuilder.group({
         title: [task?.title, [Validators.required]],
         description: [task?.description, [Validators.required, Validators.minLength(8)]],
@@ -63,8 +64,8 @@ export class TaskAddComponent implements OnInit {
   private validateDueDate() : ValidatorFn {
     return (astractControl: AbstractControl): ValidationErrors | null => {
       let dateEntered = new Date(astractControl.value);
-      const currentDate = new Date();
-      let futureDate = this.addDays(90);
+      const currentDate: Date = new Date();
+      const futureDate: Date = this.addDays(90);
       if (dateEntered <= currentDate || dateEntered >= futureDate) {
         return { error: true }
       }
