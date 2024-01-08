@@ -4,7 +4,7 @@ import { Status } from '../../models/status.model';
 import { STATUS } from '../../constants/task-manager.constant';
 import { TaskListService } from '../../services/task-list.service';
 import { List } from '../../models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -27,8 +27,8 @@ export class TaskAddComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe();
     this.tasks$ = this.activatedRoute.params.pipe(
-      switchMap((param) => this.taskListService.getLists().pipe(
-        map((lists) => {
+      switchMap((param: Params) => this.taskListService.getLists().pipe(
+        map((lists: List[]) => {
           return lists.find((list) => {
             this.id = Number(param['id']);
             this.isAddFlow = param['id'] ? false : true;

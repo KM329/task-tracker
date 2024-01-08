@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskManagerComponent } from './modules/task-manager/task-manager.component';
 import { TaskAddComponent } from './modules/task-manager/components/task-add/task-add.component';
-
-// const routes: Routes = [
-//   { path: '', redirectTo: '/lists', pathMatch: 'full' },
-//   { path: 'lists', component: TaskManagerComponent },
-// ];
 
 const routes: Routes = [
   {
