@@ -1,16 +1,9 @@
-# XelloTaskTracker
+# TaskTracker
 
 The Task Tracker can perform the CRUD Operations and a drag & drop functionality.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
 # Run Application
-
-$ git clone https://github.com/KM329/xello-task-tracker.git
-$ cd xello-task-tracker
-$ npm install
-
-//run the app
-$ ng serve 
 
 Open 'http://localhost:4200/lists'
 
